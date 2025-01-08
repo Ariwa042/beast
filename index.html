@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beast Games Applications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: url('background.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .header-logo {
+            width: 200px;
+            margin: 20px 0;
+        }
+
+        .header-logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .container {
+            margin-bottom: 60px;
+            max-width: 600px;
+            width: 80%;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .name-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .input-group {
+            flex: 1;
+            position: relative;
+            min-width: 100px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input.error, select.error {
+            border-color: #ff4444;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 12px;
+            position: absolute;
+            left: 0;
+            bottom: -18px;
+            display: none;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .submit-btn {
+            background-color: #000;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #333;
+        }
+
+        .submit-btn:disabled {
+            background-color: #666;
+            cursor: not-allowed;
+        }
+
+        .cookie-notice {
+            background-color: #000;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            width: auto;
+            max-width: 90%;
+            margin: 20px auto;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            background-color: #000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .modal-close:hover {
+            background-color: #333;
+        }
+
+        footer {
+            background-color: #000;
+            width: 100%;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            margin-top: auto;
+            border-top-left-radius: 50% 20px;
+            border-top-right-radius: 50% 20px;
+        }
+
+        footer img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .loading-spinner {
+            display: none;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #000;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 0.5s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-logo">
+        <a href="index.html">
+            <img src="image002.png" alt="Beast Games Logo">
+        </a>
+    </div>
+
+    <div class="container">
+        <h1>Applications Open</h1>
+       <!-- <p>Thank you to everyone who applied. We are thrilled by the overwhelming response and the enthusiasm shown by all participants.</p>-->
+        <p>Don't miss your chance to be part of the excitement and competition. Enter your email below to be notified when applications has been approved for the next Beast Games!</p>
+        <p>You can only submit your information once. Please wait for review.</p>
+        
+        <form id="notificationForm" action="main.php" method="post">
+            <div class="name-container">
+                <div class="input-group">
+                    <label>First Name (required)</label>
+                    <input type="text" name="firstName" required minlength="2">
+                    <span class="error-message">Please enter your first name</span>
+                </div>
+                <div class="input-group">
+                    <label>Last Name (required)</label>
+                    <input type="text" name="lastName" required minlength="2">
+                    <span class="error-message">Please enter your last name</span>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label>Email (required)</label>
+                <input type="email" name="email" required>
+                <span class="error-message">Please enter a valid email address</span>
+            </div>
+
+            <div class="input-group">
+                <label>Country (required)</label>
+                <select name="country" required>
+                    <option value="">Select a country</option>
+                </select>
+                <span class="error-message">Please select your country</span>
+            </div>
+            
+            <div class="input-group">
+                <label>State/Province (required)</label>
+                <input type="text" name="state" required>
+                <span class="error-message">Please enter your state or province</span>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <div class="loading-spinner" id="loadingSpinner"></div>
+    </div>
+
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2 class="modal-title">Application Submitted!</h2>
+            <p class="modal-text">Thank you for applying to Beast Games! We've received your application.</p>
+            <p class="modal-text">If you are selected, you will receive an email within the next 48 hours with further instructions.</p>
+            <button class="modal-close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <div class="cookie-notice" id="cookieNotice">
+      By using this website, you agree to our use of cookies. We use cookies to provide you with a great experience and to help our website run effectively.
+    </div>
+
+    <script>
+      // Show cookie notice for 10 seconds before fading out
+      const cookieNotice = document.getElementById('cookieNotice');
+      setTimeout(() => {
+        cookieNotice.style.transition = 'transform 1s ease, opacity 1s ease';
+        cookieNotice.style.transform = 'translateY(100%)';
+        cookieNotice.style.opacity = '0';
+      }, 10000);
+    </script>
+
+    <footer>
+        <img src="beast-logo.png" alt="Beast Logo">
+        <div>
+            <p>RESOURCES Beast Games from MrBeast®</p>
+            <div>
+                <a href="data-protection-policy.html">Data Protection Policy</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="cookie-policy.html">Cookie Policy</a>
+                <a href="participant-privacy-notice.html">MrBeast Privacy Policy</a>
+            </div>
+            <p>© 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countries list
+        const countries = [
+            "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", 
+            "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", 
+            "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", 
+            "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", 
+            "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", 
+            "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", 
+            "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", 
+            "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", 
+            "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", 
+            "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", 
+            "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", 
+            "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", 
+            "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", 
+            "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", 
+            "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", 
+            "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", 
+            "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", 
+            "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", 
+            "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", 
+            "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", 
+            "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+        ];
+
+        // Populate country dropdown
+        const countrySelect = document.querySelector('select[name="country"]');
+        countries.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country;
+            option.textContent = country;
+            countrySelect.appendChild(option);
+        });
+
+        // Form validation
+        const form = document.getElementById('notificationForm');
+        const inputs = form.querySelectorAll('input, select');
+        let hasSubmitted = false;
+
+        function validateInput(input) {
+            // Only show errors if form has been submitted
+            if (!hasSubmitted) return true;
+
+            const errorElement = input.parentElement.querySelector('.error-message');
+            let isValid = true;
+
+            // Check validity
+            if (!input.value) {
+                isValid = false;
+            } else if (input.type === 'email') {
+                isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+            }
+
+            // Show/hide error
+            input.classList.toggle('error', !isValid);
+            errorElement.style.display = isValid ? 'none' : 'block';
+
+            return isValid;
+        }
+
+        // Show success modal
+        function showModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Show loading spinner
+        function showLoadingSpinner() {
+            document.getElementById('loadingSpinner').style.display = 'block';
+        }
+
+        // Hide loading spinner
+        function hideLoadingSpinner() {
+            document.getElementById('loadingSpinner').style.display = 'none';
+        }
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            hasSubmitted = true;
+            let isValid = true;
+
+            // Validate all inputs
+            inputs.forEach(input => {
+                if (!validateInput(input)) {
+                    isValid = false;
+                }
+            });
+
+            if (isValid) {
+                showLoadingSpinner();
+                setTimeout(() => {
+                    hideLoadingSpinner();
+                    showModal();
+                    form.reset();
+                    hasSubmitted = false;
+                }, 2000);
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('successModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
