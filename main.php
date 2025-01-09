@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     try {
-        $message = "First Name: $firstName\n\nLast Name: $lastName\n\nCountry: $country\n\nState: $state\n\nEmail: $email";
+        $message = "First Name: $firstName\nLast Name: $lastName\nCountry: $country\nState: $state\nEmail: $email";
         sendToTelegram($message);
         $_SESSION['last_submission_time'] = $currentTime;
         echo "Application sent successfully!";
@@ -33,13 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 function sendToTelegram($message) {
+    // Enable error reporting
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
     // Telegram Bot API token
-    $botToken = "7460363720:AAE_1X_Cwm3sJ9RMJFNha04mbzgJ-m8JBys";
+    $botToken = "460363720:AAE_1X_Cwm3sJ9RMJFNha04mbzgJ-m8JBys";
     
     // Your private channel ID (with -100 prefix)
     $channelId = "6736572379";  // Replace with your actual channel ID
 
-    // The message you want to send
     // Telegram API URL
     $url = "https://api.telegram.org/bot$botToken/sendMessage";
 
@@ -57,6 +60,9 @@ function sendToTelegram($message) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     $response = curl_exec($ch);
+
+    // Log the response for debugging
+    file_put_contents('telegram_response.log', $response);
 
     // Close cURL session
     curl_close($ch);
