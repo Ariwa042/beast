@@ -1,0 +1,40 @@
+2025-01-09 04:26:48,869 INFO:  * Detected change in 'C:\\Users\\DC\\Documents\\Beast Games2\\app.py', reloading
+2025-01-09 04:26:49,155 INFO:  * Restarting with stat
+2025-01-09 04:26:51,771 DEBUG: TELEGRAM_BOT_TOKEN: 460363720:AAE_1X_Cwm3sJ9RMJFNha04mbzgJ-m8JBys
+2025-01-09 04:26:51,771 DEBUG: TELEGRAM_CHANNEL_ID: 6736572379
+2025-01-09 04:26:51,846 WARNING:  * Debugger is active!
+2025-01-09 04:26:51,880 INFO:  * Debugger PIN: 133-219-275
+2025-01-09 04:26:57,439 DEBUG: TELEGRAM_BOT_TOKEN: 460363720:AAE_1X_Cwm3sJ9RMJFNha04mbzgJ-m8JBys
+2025-01-09 04:26:57,440 DEBUG: TELEGRAM_CHANNEL_ID: 6736572379
+2025-01-09 04:26:57,740 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-09 04:26:57,741 INFO: [33mPress CTRL+C to quit[0m
+2025-01-09 04:26:57,764 INFO:  * Restarting with stat
+2025-01-09 04:27:00,406 DEBUG: TELEGRAM_BOT_TOKEN: 460363720:AAE_1X_Cwm3sJ9RMJFNha04mbzgJ-m8JBys
+2025-01-09 04:27:00,406 DEBUG: TELEGRAM_CHANNEL_ID: 6736572379
+2025-01-09 04:27:00,489 WARNING:  * Debugger is active!
+2025-01-09 04:27:00,525 INFO:  * Debugger PIN: 133-219-275
+2025-01-09 04:27:00,635 INFO: 127.0.0.1 - - [09/Jan/2025 04:27:00] "GET / HTTP/1.1" 200 -
+2025-01-09 04:27:05,045 INFO: 127.0.0.1 - - [09/Jan/2025 04:27:05] "[36mGET /static/images/background.png HTTP/1.1[0m" 304 -
+2025-01-09 04:27:05,307 INFO: 127.0.0.1 - - [09/Jan/2025 04:27:05] "[36mGET /static/images/image002.png HTTP/1.1[0m" 304 -
+2025-01-09 04:27:05,579 INFO: 127.0.0.1 - - [09/Jan/2025 04:27:05] "[36mGET /static/images/beast-logo.png HTTP/1.1[0m" 304 -
+2025-01-09 04:29:48,588 DEBUG: TELEGRAM_BOT_TOKEN: 460363720:AAE_1X_Cwm3sJ9RMJFNha04mbzgJ-m8JBys
+2025-01-09 04:29:48,589 DEBUG: TELEGRAM_CHANNEL_ID: 6736572379
+2025-01-09 04:29:48,741 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-01-09 04:29:48,741 INFO: [33mPress CTRL+C to quit[0m
+2025-01-09 04:29:48,758 INFO:  * Restarting with stat
+2025-01-09 04:29:54,202 DEBUG: TELEGRAM_BOT_TOKEN: 460363720:AAE_1X_Cwm3sJ9RMJFNha04mbzgJ-m8JBys
+2025-01-09 04:29:54,203 DEBUG: TELEGRAM_CHANNEL_ID: 6736572379
+2025-01-09 04:29:54,305 WARNING:  * Debugger is active!
+2025-01-09 04:29:54,353 INFO:  * Debugger PIN: 133-219-275
+2025-01-09 04:29:55,277 INFO: 127.0.0.1 - - [09/Jan/2025 04:29:55] "GET / HTTP/1.1" 200 -
+2025-01-09 04:29:59,289 INFO: 127.0.0.1 - - [09/Jan/2025 04:29:59] "[36mGET /static/images/image002.png HTTP/1.1[0m" 304 -
+2025-01-09 04:29:59,780 INFO: 127.0.0.1 - - [09/Jan/2025 04:29:59] "[36mGET /static/images/background.png HTTP/1.1[0m" 304 -
+2025-01-09 04:29:59,944 INFO: 127.0.0.1 - - [09/Jan/2025 04:29:59] "[36mGET /static/images/beast-logo.png HTTP/1.1[0m" 304 -
+2025-01-09 04:35:20,811 INFO:  * Detected change in 'C:\\Users\\DC\\Documents\\Beast Games2\\app.py', reloading
+2025-01-09 04:35:21,000 INFO:  * Restarting with stat
+2025-01-09 04:35:26,708 DEBUG: TELEGRAM_BOT_TOKEN: 460363720:AAE_1X_Cwm3sJ9RMJFNha04mbzgJ-m8JBys
+2025-01-09 04:35:26,709 DEBUG: TELEGRAM_CHANNEL_ID: 6736572379
+2025-01-09 04:35:26,870 WARNING:  * Debugger is active!
+2025-01-09 04:35:26,908 INFO:  * Debugger PIN: 133-219-275

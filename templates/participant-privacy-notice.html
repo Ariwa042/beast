@@ -18,7 +18,7 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            background: url('background.png') no-repeat center center fixed;
+            background: url('{{ url_for('static', filename='images/background.png') }}') no-repeat center center fixed;
             background-size: cover;
             color: white;
         }
@@ -92,8 +92,8 @@
 </head>
 <body>
     <div class="header-logo">
-        <a href="index.html">
-            <img src="image002.png" alt="Beast Games Logo">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='images/image002.png') }}" alt="Beast Games Logo">
         </a>
     </div>
 
@@ -162,14 +162,14 @@
     </div>
 
     <footer>
-        <img src="beast-logo.png" alt="Beast Logo">
+        <img src="{{ url_for('static', filename='images/beast-logo.png') }}" alt="Beast Logo">
         <div>
             <p>RESOURCES Beast Games from MrBeast®</p>
             <div>
-                <a href="data-protection-policy.html">Data Protection Policy</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="cookie-policy.html">Cookie Policy</a>
-                <a href="participant-privacy-notice.html">MrBeast Privacy Policy</a>
+                <a href="{{ url_for('data_protection_policy') }}">Data Protection Policy</a>
+                <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a>
+                <a href="{{ url_for('cookie_policy') }}">Cookie Policy</a>
+                <a href="{{ url_for('participant_privacy_notice') }}">MrBeast Privacy Policy</a>
             </div>
             <p>© 2025</p>
         </div>
