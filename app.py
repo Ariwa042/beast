@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Replace with your actual secret key
 
 # Telegram Bot API token
-BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '460363720:AAE_1X_Cwm3sJ9RMJFNha04mbzgJ-m8JBys')  # Replace with your actual bot token
+BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '7265054014:AAGxCzsiSeBg3O3T6y7JAXoNZP4pWg0H5QY')  # Replace with your actual bot token
 
 # Your private channel ID (with -100 prefix)
 CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID', '6736572379')  # Replace with your actual channel ID
